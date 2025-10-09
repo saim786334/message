@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sk Shayeemuddin - Creative Design & Media Expert</title>
+  <meta name="description" content="Sk Shayeemuddin — Creative design, photo editing, video editing, poster design & social media handling services.">
+  <style>
+    /* Reset & Base */
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+    body { font-family:'Poppins', sans-serif; background:#f5f7fa; color:#222; overflow-x:hidden; }
+
+    /* Header */
+    header { background:#222; color:#fff; text-align:center; padding:30px 10px; animation:fadeDown 1.2s ease; }
+    header img { width:120px; border-radius:50%; margin-bottom:10px; box-shadow:0 0 12px rgba(255,255,255,0.4); animation:pop 1.2s ease-in-out; }
+    header h1 { font-size:2rem; letter-spacing:1px; }
+    header p { opacity:0.85; }
+
+    /* Navigation */
+    nav { background:#333; display:flex; justify-content:center; gap:25px; padding:12px 0; animation:fadeUp 1.2s ease; }
+    nav a { color:#fff; text-decoration:none; font-weight:500; transition:0.3s; }
+    nav a:hover { color:#ffd369; transform:scale(1.1); }
+
+    /* Sections */
+    section { padding:60px 20px; max-width:1100px; margin:auto; }
+
+    /* Hero */
+    .hero { text-align:center; background:linear-gradient(to right,#222,#555); color:#fff; padding:100px 20px; border-radius:12px; animation:fadeIn 1.5s ease; }
+    .hero h2 { font-size:2rem; margin-bottom:10px; }
+    .hero p { font-size:1.1rem; opacity:0.9; }
+
+    /* Services Section */
+    .services { text-align:center; padding:80px 20px; background:#f9fafc; }
+    .services h2 { font-size:2.2rem; margin-bottom:50px; position:relative; display:inline-block; color:#222; }
+    .services h2::after { content:''; display:block; width:80px; height:4px; background:linear-gradient(to right,#2563eb,#0ea5e9); margin:8px auto 0; border-radius:2px; }
+
+    .service-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+    .service { background:#fff; padding:35px 25px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,0.08); transition:all 0.5s ease; opacity:0; transform:translateY(40px); animation:fadeInUp 0.8s forwards; }
+    .service:nth-child(1){animation-delay:0.2s;}
+    .service:nth-child(2){animation-delay:0.4s;}
+    .service:nth-child(3){animation-delay:0.6s;}
+    .service:nth-child(4){animation-delay:0.8s;}
+    .service:hover { transform:translateY(-12px) scale(1.05); box-shadow:0 15px 40px rgba(37,99,235,0.25); }
+    .service-icon { font-size:48px; background:linear-gradient(135deg,#2563eb,#0ea5e9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:18px; transition:transform 0.6s; }
+    .service:hover .service-icon { transform:rotate(15deg) scale(1.3); }
+    .service h3 { font-size:20px; margin-bottom:12px; color:#222; transition:color 0.3s; }
+    .service:hover h3 { color:#2563eb; }
+    .service p { font-size:15px; color:#475569; line-height:1.6; }
+
+    /* Portfolio Section */
+    .portfolio { text-align:center; padding:80px 20px; background:#f5f7fa; }
+    .portfolio h2 { font-size:2.2rem; margin-bottom:50px; position:relative; display:inline-block; color:#222; }
+    .portfolio h2::after { content:''; display:block; width:80px; height:4px; background:linear-gradient(to right,#2563eb,#0ea5e9); margin:8px auto 0; border-radius:2px; }
+
+    .portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+    .portfolio-item { background:#fff; padding:15px; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.08); transition:all 0.4s ease; opacity:0; transform:translateY(40px); animation:fadeInUp 0.8s forwards; }
+    .portfolio-item:nth-child(1){animation-delay:0.2s;}
+    .portfolio-item:nth-child(2){animation-delay:0.4s;}
+    .portfolio-item:nth-child(3){animation-delay:0.6s;}
+    .portfolio-item:nth-child(4){animation-delay:0.8s;}
+    .portfolio-item img { width:100%; border-radius:10px; transition:0.4s; }
+    .portfolio-item img:hover { transform:scale(1.05); box-shadow:0 12px 30px rgba(37,99,235,0.25); }
+    .portfolio-item h3 { margin-top:12px; font-size:18px; color:#222; }
+
+    /* Contact Section */
+    .contact { display:flex; flex-direction:column; justify-content:center; align-items:center; padding:80px 20px; background:#f9fafc; }
+    .contact h2 { font-size:2.2rem; margin-bottom:50px; text-align:center; position:relative; color:#222; }
+    .contact h2::after { content:''; display:block; width:80px; height:4px; background:linear-gradient(to right,#2563eb,#0ea5e9); margin:8px auto 0; border-radius:2px; }
+
+    .contact-container { width:100%; max-width:500px; }
+    form { display:flex; flex-direction:column; gap:15px; background:#fff; padding:30px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); animation:fadeIn 1.5s ease; }
+    input, textarea { padding:12px; border:1px solid #ccc; border-radius:6px; font-size:1rem; width:100%; }
+    button { background:#222; color:#fff; border:none; padding:12px; border-radius:6px; cursor:pointer; font-size:1rem; transition:0.3s; }
+    button:hover { background:#444; transform:scale(1.05); }
+
+    /* Footer */
+    footer { text-align:center; background:#222; color:#fff; padding:20px 10px; margin-top:60px; border-top:3px solid #ffd369; }
+    footer p:last-child { font-size:0.85rem; margin-top:5px; color:#ccc; }
+
+    /* Animations */
+    @keyframes fadeIn { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(50px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-40px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes pop { 0%{transform:scale(0.7);opacity:0;}100%{transform:scale(1);opacity:1;} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(40px);} to{opacity:1;transform:translateY(0);} }
+
+    /* Responsive */
+    @media (max-width:768px){
+      .service-list, .portfolio-grid { grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://github.com/saim786334/message/blob/main/undefined_Shayeem-digital-hub_.png?raw=true" alt="Sk Shayeemuddin Logo">
+    <h1>Sk Shayeemuddin</h1>
+    <p>Creative Design & Media Expert</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home" class="hero">
+    <h2>Welcome to My Creative Space</h2>
+    <p>I provide professional services in Poster Design, Video Editing, Photo Editing, and Social Media Handling with creativity and precision.</p>
+  </section>
+
+  <section id="services" class="services">
+    <h2>My Services</h2>
+    <div class="service-list">
+      <div class="service">
+        <div class="service-icon">🎨</div>
+        <h3>Poster Design</h3>
+        <p>Eye-catching posters for events, promotions, and social media with clean typography and vibrant colors.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">🎬</div>
+        <h3>Video Editing</h3>
+        <p>Professional editing for YouTube, Instagram Reels, and promotional videos with smooth transitions and effects.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">🖼️</div>
+        <h3>Photo Editing & Background Removal</h3>
+        <p>High-quality photo retouching, background removal, and color correction for a polished professional look.</p>
+      </div>
+      <div class="service">
+        <div class="service-icon">📱</div>
+        <h3>Social Media Management</h3>
+        <p>Creative post design and scheduling for Facebook, Instagram, and YouTube to grow your audience effectively.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio">
+    <h2>My Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://github.com/saim786334/message/blob/main/4rt.jpg?raw=true" alt="Poster Design">
+        <h3>Poster Design</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://github.com/saim786334/message/blob/main/3rd.jpg?raw=true" alt="Video Editing">
+        <h3>Video Editing</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://github.com/saim786334/message/blob/main/1st.jpg?raw=true" alt="Photo Editing">
+        <h3>Photo Editing</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://github.com/saim786334/message/blob/main/2nd.jpg?raw=true" alt="Social Media">
+        <h3>Social Media Post</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+      <form action="https://formspree.io/f/xeorllrl" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Sk Shayeemuddin — All Rights Reserved.</p>
+    <p>Designed & Developed by Sk Shayeemuddin</p>
+  </footer>
+</body>
+</html>
